@@ -1,0 +1,114 @@
+// Typography
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap')
+$ff-main: 'Josefin Sans', sans-serif
+$fs-regular: 16px
+$fw-thin: 300
+$fw-regular: 400
+$fw-bold: 600
+
+// Colors
+$pink: hsl(0, 36%, 70%)
+$light-pink: hsla(0, 36%, 70%, .7)
+$red: hsl(0, 93%, 68%)
+$dark-red: hsl(0, 6%, 24%)
+$gradient1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%))
+$gradient2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%))
+
+$pattern-img: url('../images/bg-pattern-desktop.svg')
+$photo: url('../images/hero-desktop.jpg')
+
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+body
+    display: grid
+    grid-template-columns: 56% 1fr
+    grid-template-areas: 'main cover'
+    height: 100vh
+    font-family: $ff-main
+    font-size: $fs-regular
+    font-weight: $fw-regular
+    background: $pattern-img center center no-repeat
+    background-size: cover
+    main
+        grid-area: main
+        height: 100%
+        padding: 8vh 10vw
+        .logo
+            grid-area: logo
+        .cover_mobile
+            display: none
+        .text
+            grid-area: text
+            width: 80%
+            h1
+                font-size: 4rem
+                letter-spacing: 1rem
+                color: $dark-red
+                text-transform: uppercase
+                margin: 120px 0 30px
+                span
+                    color: $pink
+                    font-weight: $fw-thin
+            p
+                color: $pink
+                margin-bottom: 30px
+                line-height: 28px
+        form
+            display: flex
+            grid-area: form
+            input
+                padding: 10px 20px
+                border: 1px solid $light-pink
+                border-radius: 30px
+                color: #b7b7b7
+                width: 100%
+                position: relative
+                font-family: $ff-main
+                color: $light-pink
+                outline: none
+                font-size: $fs-regular
+            button
+                padding: 13px 35px 10px
+                background: $gradient2
+                background-position: center
+                background-size: cover 
+                border: 0
+                border-radius: 30px   
+                box-shadow: 0 0 10px 5px hsla(0, 36%, 70%, .4)
+                position: relative
+                z-index: 2
+                left: -60px
+    section
+        grid-area: cover
+        background: $photo center center no-repeat
+        height: 100%
+        background-size: cover
+        
+@media screen and (max-width: 864px) 
+    h1
+        font-size: 2.8rem !important
+
+@media screen and (max-width: 600px)
+    body
+        display: flex
+        flex-direction: column 
+        main
+            padding: 40px 
+            .cover_mobile
+                display: block
+                margin-top: 40px
+                margin-left: -40px
+                width: 100vw
+            .text
+                text-align: center 
+                width: 100% 
+                h1
+                    margin-top: 40px 
+            form
+                width: calc(100% + 60px)
+        section
+            display: none
+    
+
