@@ -50,18 +50,33 @@ body main .text p {
 body main form {
   display: flex;
   grid-area: form;
+  position: relative;
+  width: 100%;
+}
+body main form label {
+  border-width: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
 }
 body main form input {
-  padding: 10px 20px;
+  padding: 16px 20px;
   border: 1px solid hsla(0deg, 36%, 70%, 0.7);
-  border-radius: 30px;
-  color: #b7b7b7;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  color: hsl(0deg, 6%, 24%);
   width: 100%;
   position: relative;
   font-family: "Josefin Sans", sans-serif;
-  color: hsla(0deg, 36%, 70%, 0.7);
   outline: none;
   font-size: 16px;
+}
+body main form input::placeholder {
+  color: hsla(0deg, 36%, 70%, 0.7);
 }
 body main form button {
   padding: 13px 35px 10px;
@@ -75,6 +90,34 @@ body main form button {
   z-index: 2;
   left: -60px;
 }
+body main form button:hover {
+  cursor: pointer;
+  background: linear-gradient(135deg, hsl(0deg, 0%, 100%) -20%, hsl(0deg, 80%, 86%) 50%);
+}
+body main form .error-message {
+  display: none;
+  position: absolute;
+  padding-top: 60px;
+  padding-left: 21px;
+  width: 100%;
+  color: hsl(0deg, 93%, 68%);
+}
+body main form.is-validated input:invalid {
+  border: 1.5px solid hsl(0deg, 93%, 68%);
+}
+body main form.is-validated .error-message {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+body main form.is-validated .error-message::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url("../icons/icon-error.svg");
+  margin-top: -46px;
+  margin-right: 180px;
+}
 body section {
   grid-area: cover;
   background: url("../images/hero-desktop.jpg") center center no-repeat;
@@ -82,23 +125,18 @@ body section {
   background-size: cover;
 }
 
-@media screen and (max-width: 864px) {
-  h1 {
-    font-size: 2.8rem !important;
-  }
-}
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 820px) {
   body {
     display: flex;
     flex-direction: column;
   }
   body main {
-    padding: 40px;
+    padding: 30px;
   }
   body main .cover_mobile {
     display: block;
-    margin-top: 40px;
-    margin-left: -40px;
+    margin-top: 30px;
+    margin-left: -30px;
     width: 100vw;
   }
   body main .text {
@@ -106,10 +144,19 @@ body section {
     width: 100%;
   }
   body main .text h1 {
+    font-size: 2.5rem;
     margin-top: 40px;
   }
   body main form {
-    width: calc(100% + 60px);
+    width: calc(100% + 30px);
+    padding-bottom: 50px;
+  }
+  body main form button {
+    padding: 16px 31px 12px;
+    left: -30px;
+  }
+  body main form.is-validated .error-message::before {
+    margin-right: 125px;
   }
   body section {
     display: none;
