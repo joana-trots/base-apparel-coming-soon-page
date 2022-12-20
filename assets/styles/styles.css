@@ -117,7 +117,7 @@ form.is-validated .error-message::before {
   height: 24px;
   background: url("../icons/icon-error.svg");
   margin-top: -46px;
-  margin-right: 180px;
+  margin-right: 13vw;
 }
 
 .cover {
